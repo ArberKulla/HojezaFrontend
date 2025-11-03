@@ -1,0 +1,51 @@
+{
+  "name": "frontend-signin",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --max-warnings=0 && tsc --noEmit",
+    "preview": "vite preview",
+    "test": "npm run lint && vitest"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.9.0",
+    "@tanstack/react-query": "^5.90.2",
+    "antd": "^5.27.4",
+    "axios": "^1.12.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.9.3",
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/axios": "^0.9.36",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/react-helmet-async": "^1.0.1",
+    "@types/react-redux": "^7.1.34",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/socket.io-client": "^1.4.36",
+    "@vitejs/plugin-react": "^5.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-react-tracktor": "^1.5.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "jsdom": "^22.1.0",
+    "prettier": "^3.6.2",
+    "typescript": "^4.9.5",
+    "vite": "^7.1.12",
+    "vitest": "^4.0.6"
+  }
+}
