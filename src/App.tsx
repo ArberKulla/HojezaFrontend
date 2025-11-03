@@ -10,6 +10,7 @@ import { StoreProvider } from './contexts/StoreContext';
 import { TranslateProvider } from './contexts/TranslateContext';
 import Router from './router';
 import { persistor, store } from './store/redux';
+import './App.css';
 
 const themeConfig = {
   algorithm: theme.defaultAlgorithm,

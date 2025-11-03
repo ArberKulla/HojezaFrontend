@@ -1,35 +1,37 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    /* Core settings */
     "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+
+    /* Language features */
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "useDefineForClassFields": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noUnusedParameters": false,
-    "noUnusedLocals": false,
-    "noEmit": true,
+
+    /* Type system */
+    "strict": true,
+    "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@/*": ["src/*"],
-      "~/*": ["./*"]
-    },
-    "types": ["vitest/globals"]
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
+    /* Interop */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Output control */
+    "noEmit": true,
+
+    /* Global types */
+    "types": ["vite/client", "vitest/globals"]
   },
+
   "include": ["src"],
   "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
-  "types": ["vite/client"]
+    { "path": "./tsconfig.node.json" }
+  ]
 }

@@ -13,21 +13,11 @@ const Router = () =>
       element: (
         <PublicGuard>
           <PublicLayout>
-            <DashboardPage />
+            <HomePage />
           </PublicLayout>
         </PublicGuard>
       ),
       index: true,
-    },
-    {
-      path: 'dashboard',
-      element: (
-        <PrivateGuard>
-          <PrivateLayout>
-            <DashboardPage />
-          </PrivateLayout>
-        </PrivateGuard>
-      ),
     },
     {
       path: 'auth',
@@ -73,7 +63,7 @@ const LoginPage = Loadable(lazy(() => import('../pages/Auth/LoginPage/LoginPage'
 const RegisterPage = Loadable(lazy(() => import('../pages/Auth/RegisterPage/RegisterPage')));
 
 // Auth routes
-const DashboardPage = Loadable(lazy(() => import('../pages/Dashboard/Dashboard')));
+const HomePage = Loadable(lazy(() => import('../pages/Home/Home')));
 
 // Error routes
 const Error404Page = Loadable(lazy(() => import('../pages/NotFound/NotFound')));
