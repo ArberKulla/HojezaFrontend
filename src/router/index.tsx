@@ -47,12 +47,13 @@ const Router = () =>
     },
     {
       path: '*',
-      children: [
-        {
-          path: '404',
-          element: <Error404Page />,
-        },
-      ],
+      element: (
+        <PublicGuard>
+          <PublicLayout>
+            <Error404Page />
+          </PublicLayout>
+        </PublicGuard>
+      ),
     },
   ]);
 
