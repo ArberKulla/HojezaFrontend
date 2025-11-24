@@ -21,20 +21,37 @@ const services: Service[] = [
 const containerVariants: Variants = {
   hidden: {},
   show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.2 },
   },
 };
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50, scale: 0.9 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 90, damping: 14 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 90, damping: 14 },
+  },
 };
 
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: -40 },
-  show: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.0, ease: 'easeOut' },
+  },
+};
+
+// Button animation
+const buttonVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: 'easeOut' },
+  },
 };
 
 const ServicesSection: React.FC = () => {
@@ -45,15 +62,15 @@ const ServicesSection: React.FC = () => {
       id="services"
       className="relative px-8 py-24 my-8 overflow-hidden bg-transparent"
     >
-      {/* Grand Header */}
+      {/* Header */}
       <motion.div
         className="text-center mb-16"
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.4 }}
         variants={headerVariants}
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold text-yellow-700 mb-6 leading-tight">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-yellow-700 mb-6">
           {t("Our Services")}
         </h2>
         <p className="text-yellow-800 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
@@ -61,7 +78,7 @@ const ServicesSection: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* Service Cards */}
+      {/* Cards */}
       <motion.div
         className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto"
         initial="hidden"
@@ -72,13 +89,36 @@ const ServicesSection: React.FC = () => {
         {services.map((service, i) => (
           <motion.div
             key={i}
-            className="bg-white p-10 rounded-3xl shadow-lg cursor-pointer hover:shadow-3xl transform hover:-translate-y-3 hover:scale-105 transition-all duration-500"
             variants={cardVariants}
+            className="group bg-white p-10 rounded-3xl shadow-lg cursor-pointer 
+                       hover:shadow-3xl transform hover:-translate-y-3 hover:scale-[1.04]
+                       transition-all duration-500 relative"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-yellow-600">
               {t(service.titleKey)}
             </h3>
-            <p className="text-yellow-800 text-lg">{t(service.descKey)}</p>
+
+            <p className="text-yellow-800 text-lg mb-6">
+              {t(service.descKey)}
+            </p>
+
+            {/* Animated Learn More Button */}
+            <motion.div
+              className="opacity-0 group-hover:opacity-100"
+              variants={buttonVariants}
+              initial="hidden"
+              animate="show"
+            >
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-4 px-6 py-3 bg-yellow-600 text-white font-semibold 
+                           rounded-full shadow-md transition-all duration-300
+                           hover:bg-yellow-700 hover:shadow-xl"
+              >
+                {t("Learn More")}
+              </motion.button>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>

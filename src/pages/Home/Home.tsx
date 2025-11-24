@@ -2,6 +2,7 @@
 import { useTranslation } from "react-i18next";
 import HeroCarousel from "../../modules/Home/Herocarousel";
 import ServicesSection from "../../modules/Home/ServicesSection";
+import ContactForm from "../../modules/Home/ContactForm";
 
 export default function LandingPage() {
   const { t } = useTranslation();
@@ -14,6 +15,9 @@ export default function LandingPage() {
 
       {/* Services Section */}
       <ServicesSection />
+
+      {/* Contact Form Section */}
+      <ContactForm />
     </div>
   );
 }
