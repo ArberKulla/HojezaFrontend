@@ -60,7 +60,7 @@ const ServicesSection: React.FC = () => {
   return (
     <section
       id="services"
-      className="relative px-8 py-24 my-8 overflow-hidden bg-transparent"
+      className="relative py-24 my-8 overflow-hidden bg-transparent"
     >
       {/* Header */}
       <motion.div

@@ -9,15 +9,17 @@ export default function LandingPage() {
 
 
   return (
-    <div className="flex flex-col min-h-screen text-gray-800">
+    <div className="flex flex-col min-h-screen text-gray-800 homeContainer">
       {/* Hero Section */}
       <HeroCarousel />
 
-      {/* Services Section */}
-      <ServicesSection />
+      <div className='mx-auto'>
+        {/* Services Section */}
+        <ServicesSection />
 
-      {/* Contact Form Section */}
-      <ContactForm />
+        {/* Contact Form Section */}
+        <ContactForm />
+      </div>
     </div>
   );
 }

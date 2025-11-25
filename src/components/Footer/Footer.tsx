@@ -7,7 +7,10 @@ import {
   MailOutlined,
   PhoneOutlined,
   EnvironmentOutlined,
+  FacebookFilled,
 } from "@ant-design/icons";
+import { COMPANY_CONTACT } from "../../constants/contact";
+
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -57,10 +60,10 @@ const Footer: React.FC = () => {
         <li className="flex items-center space-x-2">
         <MailOutlined className="text-white" />
         <a
-            href="mailto:contact@hojza.com"
+            href={`mailto:${COMPANY_CONTACT.email}`}
             className="text-yellow-50 hover:text-yellow-200 transition-colors duration-300"
         >
-            contact@hojza.com
+            {COMPANY_CONTACT.email}
         </a>
         </li>
 
@@ -70,7 +73,7 @@ const Footer: React.FC = () => {
             href="tel:+355681234567"
             className="text-yellow-50 hover:text-yellow-200 transition-colors duration-300"
         >
-            +355 68 123 4567
+            {COMPANY_CONTACT.phone}
         </a>
         </li>
     </ul>
@@ -78,18 +81,25 @@ const Footer: React.FC = () => {
     <h3 className="text-lg font-semibold text-white mb-3">{t("Follow Us")}</h3>
     <div className="flex space-x-4 text-2xl">
         <a
-        href="#"
+        href={COMPANY_CONTACT.socials.instagram}
         aria-label="Instagram"
         className="text-white hover:text-yellow-200 transition-colors duration-300"
         >
         <InstagramOutlined />
         </a>
         <a
-        href="#"
+        href={COMPANY_CONTACT.socials.linkedin}
         aria-label="LinkedIn"
         className="text-white hover:text-yellow-200 transition-colors duration-300"
         >
         <LinkedinOutlined />
+        </a>
+        <a
+        href={COMPANY_CONTACT.socials.facebook}
+        aria-label="Facebook"
+        className="text-white hover:text-yellow-200 transition-colors duration-300"
+        >
+        <FacebookFilled />
         </a>
     </div>
     </div>

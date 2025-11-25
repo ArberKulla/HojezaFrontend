@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import contactImage from "../../assets/contactform1.webp";
+import styles from "./ContactForm.module.css";
+import { COMPANY_CONTACT } from "../../constants/contact";
+import { InstagramOutlined, LinkedinOutlined, FacebookFilled } from "@ant-design/icons";
 
 const ContactForm: React.FC = () => {
   const { t } = useTranslation();
@@ -68,11 +71,11 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col px-4 sm:px-6 lg:px-12 xl:px-24 py-20 bg-transparent">
+    <div className="flex flex-col sm:px-6 py-20 bg-transparent items-center">
 
       {/* Header */}
       <motion.div
-        className="text-center mb-16 max-w-4xl mx-auto"
+        className="text-center mb-16 max-w-4xl"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
@@ -81,35 +84,70 @@ const ContactForm: React.FC = () => {
         <h2 className="text-5xl md:text-6xl font-extrabold text-yellow-700 mb-6">
           {t("Get in Touch with Us")}
         </h2>
-        <p className="text-yellow-800 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+        <p className="text-yellow-800 text-xl md:text-2xl max-w-3xl leading-relaxed">
           {t("Fill out the form below and we will get back to you as soon as possible.")}
         </p>
       </motion.div>
 
       {/* Hero Image */}
-      <motion.img
-        src={contactImage}
-        alt="Contact"
-        className="w-full max-w-4xl mx-auto rounded-3xl shadow-2xl border border-yellow-300/50 object-cover"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-      />
+      <div className={`${styles.heroImage} flex w-full mb-12`}>
+        <motion.img
+          src={contactImage}
+          alt="Contact"
+          className="w-[45em] rounded-3xl shadow-2xl border border-yellow-300/50 object-cover"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        />
+      </div>
 
-      {/* Form */}
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
+      {/* Contact Form Section */}
+      <div className={styles.contactContainer}>
 
+        {/* Contact Info */}
+        <div className="flex flex-col items-center text-center justify-center mb-12">
+          <h3 className="text-3xl font-extrabold text-yellow-600 mb-3">
+            {t("Contact Our Team")}
+          </h3>
+
+          <div className="text-yellow-700 space-y-1 font-medium">
+            <p>{t("Phone")}: {COMPANY_CONTACT.phone}</p>
+            <p>{t("Email")}: {COMPANY_CONTACT.email}</p>
+          </div>
+
+          <div className="flex space-x-4 text-3xl mt-4">
+            <a
+              href={COMPANY_CONTACT.socials.instagram}
+              aria-label="Instagram"
+              className="text-yellow-600 hover:text-yellow-400 transition-colors duration-300"
+            >
+              <InstagramOutlined />
+            </a>
+            <a
+              href={COMPANY_CONTACT.socials.linkedin}
+              aria-label="LinkedIn"
+              className="text-yellow-600 hover:text-yellow-400 transition-colors duration-300"
+            >
+              <LinkedinOutlined />
+            </a>
+            <a
+              href={COMPANY_CONTACT.socials.facebook}
+              aria-label="Facebook"
+              className="text-yellow-600 hover:text-yellow-400 transition-colors duration-300"
+            >
+              <FacebookFilled />
+            </a>
+          </div>
+        </div>
+
+        {/* Contact Form */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="
-            bg-white shadow-2xl border border-yellow-200 p-8 rounded-3xl 
-            w-full md:col-start-2 
-            mt-[-120px]   /* NEGATIVE MARGIN ADDED BACK */
-          "
+          className={`${styles.contactCard} bg-white shadow-2xl border border-yellow-200 p-8 rounded-3xl w-full`}
         >
           <h2 className="text-4xl font-extrabold mb-6 text-yellow-600 text-center">
             {t("Contact Us")}
@@ -130,9 +168,10 @@ const ContactForm: React.FC = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
+            onSubmit={handleSubmit}
           >
 
-            {/* Company */}
+            {/* Company Name */}
             <motion.div variants={fadeUp} className="flex flex-col">
               <label className="font-semibold text-yellow-700 mb-1">
                 {t("Your Company Name")}
