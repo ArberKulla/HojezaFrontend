@@ -13,7 +13,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <HeroCarousel />
 
-      <div className='mx-auto'>
+      <div className='mx-auto px-6'>
         {/* Services Section */}
         <ServicesSection />
 

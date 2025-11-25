@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import contactImage from "../../assets/contactform1.webp";
-import styles from "./ContactForm.module.css";
 import { COMPANY_CONTACT } from "../../constants/contact";
 import { InstagramOutlined, LinkedinOutlined, FacebookFilled } from "@ant-design/icons";
 
@@ -71,7 +70,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col sm:px-6 py-20 bg-transparent items-center">
+    <div className="flex flex-col py-20 bg-transparent items-center">
 
       {/* Header */}
       <motion.div
@@ -89,154 +88,190 @@ const ContactForm: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* Hero Image */}
-      <div className={`${styles.heroImage} flex w-full mb-12`}>
-        <motion.img
-          src={contactImage}
-          alt="Contact"
-          className="w-[45em] rounded-3xl shadow-2xl border border-yellow-300/50 object-cover"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        />
-      </div>
+      {/* Hero Section with animation */}
+      <motion.div
+        className="flex flex-col lg:flex-row items-center w-full mb-12 gap-8"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* Hero Image */}
+        <div className="flex-shrink-0">
+          <img
+            src={contactImage}
+            alt="Contact"
+            className="w-full lg:w-[45em] rounded-3xl shadow-2xl border border-yellow-300/50 object-cover"
+          />
+        </div>
 
-      {/* Contact Form Section */}
-      <div className={styles.contactContainer}>
+        {/* Divider + Text */}
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 w-full max-w-xl">
 
+          {/* Vertical Divider */}
+          <div className="hidden lg:block bg-yellow-700 w-[6px] self-stretch rounded"></div>
+
+          {/* Text */}
+          <div className="text-center lg:text-left">
+            <h2 className="text-5xl font-extrabold text-yellow-700 mb-4">
+              {t("Let's Work Together")}
+            </h2>
+            <p className="text-lg text-yellow-800">
+              {t("We love creating digital experiences that make an impact. Reach out and let's build something amazing together.")}
+            </p>
+          </div>
+
+        </div>
+      </motion.div>
+
+      {/* Contact Form Section with animation */}
+      <motion.div
+        className="flex flex-col-reverse lg:flex-row justify-center items-center gap-8 lg:z-10 flex flex-col w-full"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {/* Contact Info */}
-        <div className="flex flex-col items-center text-center justify-center mb-12">
-          <h3 className="text-3xl font-extrabold text-yellow-600 mb-3">
-            {t("Contact Our Team")}
-          </h3>
+        <div className="flex flex-col justify-center lg:flex-row items-center gap-8 lg:w-[45em]">
 
-          <div className="text-yellow-700 space-y-1 font-medium">
-            <p>{t("Phone")}: {COMPANY_CONTACT.phone}</p>
-            <p>{t("Email")}: {COMPANY_CONTACT.email}</p>
+          {/* Text Info */}
+          <div className="text-center lg:text-right max-w-xl">
+            <h3 className="text-5xl font-extrabold text-yellow-700 mb-4">
+              {t("Contact Our Team")}
+            </h3>
+
+            <p className="text-lg md:text-xl text-yellow-800 mb-4">
+              {t("Phone")}: {COMPANY_CONTACT.phone} <br />
+              {t("Email")}: {COMPANY_CONTACT.email}
+            </p>
+
+            {/* Socials */}
+            <div className="flex justify-center lg:justify-end space-x-6 text-3xl mt-4">
+              <a
+                href={COMPANY_CONTACT.socials.instagram}
+                aria-label="Instagram"
+                className="text-yellow-700 hover:text-yellow-400 transition-colors duration-300"
+              >
+                <InstagramOutlined />
+              </a>
+              <a
+                href={COMPANY_CONTACT.socials.linkedin}
+                aria-label="LinkedIn"
+                className="text-yellow-700 hover:text-yellow-400 transition-colors duration-300"
+              >
+                <LinkedinOutlined />
+              </a>
+              <a
+                href={COMPANY_CONTACT.socials.facebook}
+                aria-label="Facebook"
+                className="text-yellow-700 hover:text-yellow-400 transition-colors duration-300"
+              >
+                <FacebookFilled />
+              </a>
+            </div>
           </div>
 
-          <div className="flex space-x-4 text-3xl mt-4">
-            <a
-              href={COMPANY_CONTACT.socials.instagram}
-              aria-label="Instagram"
-              className="text-yellow-600 hover:text-yellow-400 transition-colors duration-300"
-            >
-              <InstagramOutlined />
-            </a>
-            <a
-              href={COMPANY_CONTACT.socials.linkedin}
-              aria-label="LinkedIn"
-              className="text-yellow-600 hover:text-yellow-400 transition-colors duration-300"
-            >
-              <LinkedinOutlined />
-            </a>
-            <a
-              href={COMPANY_CONTACT.socials.facebook}
-              aria-label="Facebook"
-              className="text-yellow-600 hover:text-yellow-400 transition-colors duration-300"
-            >
-              <FacebookFilled />
-            </a>
-          </div>
+          <div className="hidden lg:block bg-yellow-700 w-[3px] self-stretch rounded"></div>
         </div>
 
         {/* Contact Form */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className={`${styles.contactCard} bg-white shadow-2xl border border-yellow-200 p-8 rounded-3xl w-full`}
-        >
-          <h2 className="text-4xl font-extrabold mb-6 text-yellow-600 text-center">
-            {t("Contact Us")}
-          </h2>
-
-          {error && (
-            <p className="mb-4 text-red-600 font-semibold bg-red-100 p-3 rounded-lg border border-red-300">
-              {error}
-            </p>
-          )}
-
-          <motion.form
-            className="space-y-5"
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.15 } },
-            }}
+        <div className="lg:mt-[-120px] w-full ">
+          <motion.div
+            className="bg-white shadow-2xl border border-yellow-200 p-8 rounded-3xl w-full"
+            variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
-            onSubmit={handleSubmit}
+            viewport={{ once: true, amount: 0.2 }}
           >
+            <h2 className="text-4xl font-extrabold mb-6 text-yellow-700 text-center">
+              {t("Contact Us")}
+            </h2>
 
-            {/* Company Name */}
-            <motion.div variants={fadeUp} className="flex flex-col">
-              <label className="font-semibold text-yellow-700 mb-1">
-                {t("Your Company Name")}
-              </label>
-              <input
-                name="companyName"
-                type="text"
-                className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60"
-                placeholder={t("Enter your company name")}
-                required
-              />
-            </motion.div>
+            {error && (
+              <p className="mb-4 text-red-600 font-semibold bg-red-100 p-3 rounded-lg border border-red-300">
+                {error}
+              </p>
+            )}
 
-            {/* Email */}
-            <motion.div variants={fadeUp} className="flex flex-col">
-              <label className="font-semibold text-yellow-700 mb-1">
-                {t("Email Address")}
-              </label>
-              <input
-                name="email"
-                type="email"
-                className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60"
-                placeholder={t("example@domain.com")}
-              />
-            </motion.div>
-
-            {/* Phone */}
-            <motion.div variants={fadeUp} className="flex flex-col">
-              <label className="font-semibold text-yellow-700 mb-1">
-                {t("Phone Number")}
-              </label>
-              <input
-                name="phone"
-                type="text"
-                className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60"
-                placeholder={t("+355 68 123 4567")}
-              />
-            </motion.div>
-
-            {/* Message */}
-            <motion.div variants={fadeUp} className="flex flex-col">
-              <label className="font-semibold text-yellow-700 mb-1">
-                {t("What service do you need?")}
-              </label>
-              <textarea
-                name="message"
-                className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60 h-36 resize-none"
-                placeholder={t("Describe the service you require...")}
-                required
-              />
-            </motion.div>
-
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              type="submit"
-              variants={fadeIn}
-              className="w-full py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg hover:shadow-xl transition-all"
+            <motion.form
+              className="space-y-5"
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.15 } },
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              onSubmit={handleSubmit}
             >
-              {t("Send Message")}
-            </motion.button>
+              {/* Company Name */}
+              <motion.div variants={fadeUp} className="flex flex-col">
+                <label className="font-semibold text-yellow-700 mb-1">
+                  {t("Your Company Name")}
+                </label>
+                <input
+                  name="companyName"
+                  type="text"
+                  className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60"
+                  placeholder={t("Enter your company name")}
+                  required
+                />
+              </motion.div>
 
-          </motion.form>
-        </motion.div>
-      </div>
+              {/* Email */}
+              <motion.div variants={fadeUp} className="flex flex-col">
+                <label className="font-semibold text-yellow-700 mb-1">
+                  {t("Email Address")}
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60"
+                  placeholder={t("example@domain.com")}
+                />
+              </motion.div>
+
+              {/* Phone */}
+              <motion.div variants={fadeUp} className="flex flex-col">
+                <label className="font-semibold text-yellow-700 mb-1">
+                  {t("Phone Number")}
+                </label>
+                <input
+                  name="phone"
+                  type="text"
+                  className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60"
+                  placeholder={t("+355 68 123 4567")}
+                />
+              </motion.div>
+
+              {/* Message */}
+              <motion.div variants={fadeUp} className="flex flex-col">
+                <label className="font-semibold text-yellow-700 mb-1">
+                  {t("What service do you need?")}
+                </label>
+                <textarea
+                  name="message"
+                  className="border border-yellow-300 p-3 rounded-lg focus:ring-2 focus:ring-yellow-500/60 h-36 resize-none"
+                  placeholder={t("Describe the service you require...")}
+                  required
+                />
+              </motion.div>
+
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                type="submit"
+                variants={fadeIn}
+                className="w-full py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg hover:shadow-xl transition-all"
+              >
+                {t("Send Message")}
+              </motion.button>
+
+            </motion.form>
+          </motion.div>
+        </div>
+      </motion.div>
     </div>
   );
 };
