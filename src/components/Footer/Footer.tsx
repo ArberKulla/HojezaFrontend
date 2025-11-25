@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
 
     {/* Column 1: Brand / About */}
     <div>
-      <h2 className="text-2xl font-bold text-white mb-3">Hojza</h2>
+      <h2 className="text-2xl font-bold text-white mb-3">Hojeza</h2>
       <p className="text-yellow-50/80 text-sm leading-relaxed max-w-xs">
         {t("We build modern, scalable, and user-friendly digital solutions that help your business grow and stand out.")}
       </p>
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
 
   {/* Bottom Bar */}
   <div className="border-t border-yellow-400 mt-10 pt-4 text-center text-xs text-yellow-50/70">
-    © {new Date().getFullYear()} Hojza. {t("All rights reserved.")}.
+    © {new Date().getFullYear()} Hojeza {t("All rights reserved.")}.
   </div>
 </footer>
 

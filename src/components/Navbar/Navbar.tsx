@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
                 px-4
                 text-sm font-medium
                 text-gray-700
-                hover:bg-yellow-300/50 hover:text-yellow-600
+                hover:bg-yellow-100/50 hover:text-yellow-600
                 transition
               "
             >
