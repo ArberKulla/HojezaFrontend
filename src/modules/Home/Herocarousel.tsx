@@ -39,6 +39,7 @@ const slides: Slide[] = [
 const HeroCarousel: React.FC = () => {
   const { t } = useTranslation();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [isDragging, setIsDragging] = useState(false);
   const [index, setIndex] = useState(0);
 
   // Auto-slide every 5 seconds
@@ -46,11 +47,28 @@ const HeroCarousel: React.FC = () => {
     if (!emblaApi) return;
 
     const interval = setInterval(() => {
-      emblaApi.scrollNext();
+      if (!isDragging) emblaApi.scrollNext();
     }, 5000);
 
     return () => clearInterval(interval);
+  }, [emblaApi, isDragging]);
+
+  // Track dragging state
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const handlePointerDown = () => setIsDragging(true);
+    const handlePointerUp = () => setIsDragging(false);
+
+    emblaApi.on("pointerDown", handlePointerDown);
+    emblaApi.on("pointerUp", handlePointerUp);
+
+    return () => {
+      emblaApi.off("pointerDown", handlePointerDown);
+      emblaApi.off("pointerUp", handlePointerUp);
+    };
   }, [emblaApi]);
+
 
   // Update index
   const onSelect = useCallback(() => {
