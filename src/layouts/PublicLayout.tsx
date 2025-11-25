@@ -10,14 +10,22 @@ interface Props {
 
 export const PublicLayout = ({ children, ...restProps }: Props): JSX.Element => {
   return (
-    <FadeInWrapper>
-      <div className='relative overflow-x-hidden flex flex-col min-h-screen'>
+    <FadeInWrapper duration={1000}>
+      <div className="relative flex flex-col min-h-[100vh] w-full">
+        {/* Navbar stays at top */}
         <Navbar />
-        {children}
+
+        {/* Main content grows to take available space */}
+        <main className="flex-1 w-full">
+          {children}
+        </main>
+
+        {/* Footer always at the bottom */}
         <Footer />
       </div>
     </FadeInWrapper>
   );
 };
+
 
 export default PublicLayout;

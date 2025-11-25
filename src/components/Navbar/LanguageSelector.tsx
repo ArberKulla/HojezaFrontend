@@ -30,7 +30,7 @@ export const LanguageSelector: React.FC = () => {
         </button>
 
         {open && (
-            <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+            <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-[999]">
             <button
                 onClick={() => {
                 setLanguage("en");
