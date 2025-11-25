@@ -11,7 +11,7 @@ export const LanguageSelector: React.FC = () => {
     <div className="relative inline-block text-left">
         <button
             onClick={() => setOpen(!open)}
-            className="inline-flex justify-center items-center px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 transition"
+            className="inline-flex justify-center items-center px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 transition w-[7em]"
         >
             <span className="mr-2">{language === "en" ? "🇺🇸" : "🇦🇱"}</span>
             <span>{language === "en" ? "EN" : "AL"}</span>
