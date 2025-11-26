@@ -67,10 +67,10 @@ export default function LandingPage() {
       </section>
 
       {/* ================= Main Contact Section ================= */}
-      <div className="flex flex-col lg:flex-row mx-auto px-6 gap-6 py-16 max-w-7xl w-full items-center">
+      <div className="flex flex-col-reverse lg:flex-row mx-auto px-6 gap-6 py-16 max-w-7xl w-full items-center">
 
         {/* Left: Contact Info */}
-        <div className="flex flow-row items-center w-full lg:w-1/2 h-fit">
+        <div className="flex flow-row items-center w-full lg:w-3/5 h-fit">
         <motion.section
           className="flex flex-col items-center justify-start lg:items-start w-full px-6 lg:px-16 relative h-auto"
           variants={fadeUp}
@@ -127,7 +127,7 @@ export default function LandingPage() {
 
 
         {/* Right: Contact Form */}
-        <div className="w-full lg:w-1/2 px-6 lg:px-16">
+        <div className="w-full lg:w-2/3 px-6 lg:px-16 mb-10 lg:mb-0">
           <ContactForm />
         </div>
       </div>
