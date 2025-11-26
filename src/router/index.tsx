@@ -20,6 +20,17 @@ const Router = () =>
       index: true,
     },
     {
+      path: 'contact',
+      element: (
+        <PublicGuard>
+          <PublicLayout>
+            <ContactPage />
+          </PublicLayout>
+        </PublicGuard>
+      ),
+      index: true,
+    },
+    {
       path: 'auth',
       children: [
         {
@@ -65,6 +76,7 @@ const RegisterPage = Loadable(lazy(() => import('../pages/Auth/RegisterPage/Regi
 
 // Auth routes
 const HomePage = Loadable(lazy(() => import('../pages/Home/Home')));
+const ContactPage = Loadable(lazy(() => import('../pages/Contact/Contact')));
 
 // Error routes
 const Error404Page = Loadable(lazy(() => import('../pages/NotFound/NotFound')));
