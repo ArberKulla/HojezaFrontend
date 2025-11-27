@@ -28,7 +28,7 @@ const ContactFormSection: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col py-20 bg-transparent items-center">
+    <div className="flex flex-col bg-transparent items-center">
 
       {/* Header */}
       <motion.div
