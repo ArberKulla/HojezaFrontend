@@ -1,10 +1,12 @@
-import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
-import PrivateGuard from '../guards/PrivateGuard';
 import PublicGuard from '../guards/PublicGuard';
-import PrivateLayout from '../layouts/PrivateLayout';
 import PublicLayout from '../layouts/PublicLayout';
-import Loadable from './Loadable';
+import LoginPage from '../pages/Auth/LoginPage/LoginPage';
+import RegisterPage from '../pages/Auth/RegisterPage/RegisterPage';
+import HomePage from '../pages/Home/Home';
+import ContactPage from '../pages/Contact/Contact';
+import Error404Page from '../pages/NotFound/NotFound';
+
 
 const Router = () =>
   useRoutes([
@@ -69,14 +71,3 @@ const Router = () =>
   ]);
 
 export default Router;
-
-// Guest routes
-const LoginPage = Loadable(lazy(() => import('../pages/Auth/LoginPage/LoginPage')));
-const RegisterPage = Loadable(lazy(() => import('../pages/Auth/RegisterPage/RegisterPage')));
-
-// Auth routes
-const HomePage = Loadable(lazy(() => import('../pages/Home/Home')));
-const ContactPage = Loadable(lazy(() => import('../pages/Contact/Contact')));
-
-// Error routes
-const Error404Page = Loadable(lazy(() => import('../pages/NotFound/NotFound')));
