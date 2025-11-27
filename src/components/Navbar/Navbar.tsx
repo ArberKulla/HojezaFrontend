@@ -202,7 +202,7 @@ const Navbar: React.FC = () => {
       {/* ██████████████████████
           MOBILE DROPDOWN MENU
          ██████████████████████ */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {openNavbar && isMobile && (
           <motion.div
             initial={{ height: 0 }}
@@ -271,13 +271,13 @@ const Navbar: React.FC = () => {
                         />
                       </motion.button>
 
-                      <AnimatePresence>
+                      <AnimatePresence mode="wait">
                         {isMobileOpen && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.25 }}
+                            transition={{ duration: 0.1, ease: "easeOut" }}
                             className="pl-6 mt-1 space-y-1 bg-yellow-50/70 border-l-4 border-yellow-300"
                           >
                             {item.list?.map((s) => (
