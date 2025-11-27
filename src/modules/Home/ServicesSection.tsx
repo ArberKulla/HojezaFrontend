@@ -2,20 +2,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, Variants } from 'framer-motion';
-
-interface Service {
-  titleKey: string;
-  descKey: string;
-}
-
-const services: Service[] = [
-  { titleKey: "Web Development", descKey: "Custom websites built with modern technologies." },
-  { titleKey: "UI/UX Design", descKey: "Beautiful and intuitive designs focused on user experience." },
-  { titleKey: "E-commerce Solutions", descKey: "Scalable online stores optimized for conversion." },
-  { titleKey: "SEO Optimization", descKey: "Improve your visibility and rank higher on search engines." },
-  { titleKey: "Maintenance & Support", descKey: "Reliable long-term support for your applications." },
-  { titleKey: "Branding", descKey: "From logos to full identity systems, we help you stand out." },
-];
+import { services } from '../../constants/services';
 
 // Animation variants
 const containerVariants: Variants = {
