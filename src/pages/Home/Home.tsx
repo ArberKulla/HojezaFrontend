@@ -1,6 +1,6 @@
 // File: LandingPage.tsx
 import { useTranslation } from "react-i18next";
-import HeroCarousel from "../../modules/Home/HeroCarousel";
+import HomeCarousel from "../../modules/Home/HomeCarousel";
 import ServicesSection from "../../modules/Home/ServicesSection";
 import ContactFormSection from "../../modules/Home/ContactFormSection";
 import { Helmet } from "react-helmet-async";
@@ -18,7 +18,7 @@ export default function LandingPage() {
       
       <div className="flex flex-col text-gray-800">
         {/* Hero Section */}
-        <HeroCarousel />
+        <HomeCarousel />
 
         <div className='flex flex-col gap-16 mx-auto px-6'>
           {/* Services Section */}
