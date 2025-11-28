@@ -59,7 +59,7 @@ const ContactFormSection: React.FC = () => {
           <img
             src={contactImage}
             alt="Contact"
-            className="w-full lg:w-[45em] rounded-3xl shadow-2xl border border-yellow-300/50 object-cover"
+            className="w-full lg:w-[43em] rounded-3xl shadow-2xl border border-yellow-300/50 object-cover"
           />
         </div>
 
@@ -91,7 +91,7 @@ const ContactFormSection: React.FC = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         {/* Contact Info */}
-        <div className="flex flex-col justify-center lg:flex-row items-center gap-8 lg:w-[45em]">
+        <div className="flex flex-col justify-center lg:flex-row items-center gap-8 lg:w-[40em]">
 
           {/* Text Info */}
           <div className="text-center lg:text-right max-w-xl">
