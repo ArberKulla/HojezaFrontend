@@ -17,6 +17,7 @@ const Navbar: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navbarRef = useRef<HTMLElement>(null);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
   const dropdownRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   const navItems = [
@@ -28,9 +29,12 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
       if (
         navbarRef.current &&
-        !navbarRef.current.contains(event.target as Node)
+        !navbarRef.current.contains(target) &&
+        !langDropdownRef.current?.contains(target)
       ) {
         setOpenNavbar(false);
         setOpenDropdown(null);
@@ -38,7 +42,7 @@ const Navbar: React.FC = () => {
 
       if (openDropdown && !isMobile) {
         const dropdownEl = dropdownRefs.current[openDropdown];
-        if (dropdownEl && !dropdownEl.contains(event.target as Node)) {
+        if (dropdownEl && !dropdownEl.contains(target)) {
           setOpenDropdown(null);
         }
       }
@@ -170,7 +174,9 @@ const Navbar: React.FC = () => {
           <button className="bg-yellow-500 hover:bg-yellow-400 text-white px-4 py-2 rounded-lg transition min-w-[8em]">
             {t("Contact Us")}
           </button>
-          <LanguageSelector />
+          <LanguageSelector 
+            langRef={useRef<HTMLDivElement>(null)}
+          />
         </div>
       </div>
 
@@ -288,7 +294,9 @@ const Navbar: React.FC = () => {
               >
                 {t("Contact Us")}
               </button>
-              <LanguageSelector />
+              <LanguageSelector 
+                langRef={langDropdownRef}
+              />
             </div>
           </div>
         </div>

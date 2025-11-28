@@ -60,3 +60,55 @@
   background-color: rgba(253, 230, 138, 0.4);
   padding-left: 0.75rem;
 }
+
+
+/* ============================
+   LANGUAGE STYLES
+   ============================ */
+
+   /* Language Selector Dropdown */
+.langDropdown {
+  position: absolute;
+  background: linear-gradient(to bottom, #ffffffee, #ffffff);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  z-index: 999;
+}
+
+.langDropUp {
+  transform-origin: bottom;
+}
+
+.langOpen {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/* Language Dropdown Item */
+.langDropdownItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, font-weight 0.2s;
+}
+
+.langDropdownItem:hover {
+  background: #fef3c7; /* yellow-50 */
+}
+
+/* Active Language */
+.langActive {
+  background: #fde68a; /* yellow-100 */
+  font-weight: 600;
+}
