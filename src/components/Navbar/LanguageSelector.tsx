@@ -9,7 +9,7 @@ import sq from "../../assets/sq.webp";
 
 
 interface LanguageSelectorProps {
-  langRef: React.Ref<HTMLDivElement>;
+  langRef: React.RefObject<HTMLDivElement>;
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ langRef }) => {
@@ -28,13 +28,13 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ langRef }) =
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!buttonRef.current?.contains(event.target as Node)) {
+    const handleClickOutsideLanguage = (event: MouseEvent) => {
+      if (!langRef!.current?.contains(event.target as Node)) {
         setOpen(false);
       }
     };
-    if (open) document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    if (open) document.addEventListener('mousedown', handleClickOutsideLanguage);
+    return () => document.removeEventListener('mousedown', handleClickOutsideLanguage);
   }, [open]);
 
   // Calculate dropdown position and drop-up or drop-down

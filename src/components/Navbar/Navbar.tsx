@@ -28,9 +28,8 @@ const Navbar: React.FC = () => {
   ];
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutsideNavbar = (event: MouseEvent) => {
       const target = event.target as Node;
-
       if (
         navbarRef.current &&
         !navbarRef.current.contains(target) &&
@@ -48,11 +47,11 @@ const Navbar: React.FC = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutsideNavbar);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutsideNavbar);
     };
-  }, []);
+  }, [openDropdown, isMobile]);
 
 
   const handleDropdownClick = (label: string) => {
@@ -122,15 +121,15 @@ const Navbar: React.FC = () => {
                   >
                     <div className={styles.desktopDropdownInner}>
                       {item.list?.map((s) => (
-                        <button
-                          key={s.nav}
-                          onClick={() => {
-                            smartNavigate(s.nav);
-                            setOpenDropdown(null);
-                          }}
-                          className="dropdownItem w-full text-left px-4 py-2.5 
-                                     text-gray-700 hover:text-yellow-600"
-                        >
+                    <button
+                      key={s.nav}
+                      onClick={() => {
+                        smartNavigate(s.nav);
+                        setOpenDropdown(null);
+                      }}
+                      className="dropdownItem w-full text-left px-4 py-2.5 text-gray-700 
+                                hover:bg-yellow-100 hover:text-yellow-600 transition-colors hover:-translate-y-0.5"
+                    >
                           {t(s.titleKey)}
                         </button>
                       ))}
@@ -221,7 +220,7 @@ const Navbar: React.FC = () => {
                     <div
                       className={`${styles.mobileDropdown} ${
                         isOpen ? styles.open : ""
-                      } bg-yellow-50/70 pl-6 mt-1`}
+                      } bg-yellow-50/70`}
                     >
                       {item.list?.map((s) => (
                         <button
@@ -232,7 +231,7 @@ const Navbar: React.FC = () => {
                             setOpenDropdown(null);
                           }}
                           className="
-                            w-full text-left px-3 py-2.5 text-gray-700
+                            w-full text-left px-3 py-2.5 pl-8 text-gray-700
 
                             /* Hover effects */
                             hover:bg-yellow-50 

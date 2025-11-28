@@ -1,7 +1,7 @@
 .desktopDropdown {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(6px);
   position: absolute;
@@ -18,7 +18,6 @@
 .desktopDropdownInner {
   display: flex;
   flex-direction: column;
-  padding: 0.25rem 0;
 }
 
 /* ============================
@@ -29,10 +28,9 @@
 .mobileDropdown {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-in-out, opacity 0.25s ease-in-out;
+  transition: max-height 0.2s ease-in-out, opacity 0.25s ease-in-out;
   background: rgba(253, 230, 138, 0.7); /* yellow-50/70 */
   border-left: 4px solid #fcd34d; /* yellow-300 left border */
-  padding-left: 1.5rem; /* pl-6 */
 }
 
 /* When open */
