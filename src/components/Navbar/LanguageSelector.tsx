@@ -29,7 +29,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ langRef }) =
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutsideLanguage = (event: MouseEvent) => {
-      if (!langRef!.current?.contains(event.target as Node)) {
+      if (!langRef!.current?.contains(event.target as Node)
+        && !buttonRef.current?.contains(event.target as Node)) {
         setOpen(false);
       }
     };
