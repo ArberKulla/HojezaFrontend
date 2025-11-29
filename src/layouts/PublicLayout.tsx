@@ -10,12 +10,12 @@ interface Props {
 export const PublicLayout = ({ children }: Props): JSX.Element => {
   return (
     <FadeInWrapper>
-      <div className="relative flex flex-col w-full h-[100dvh]">
+      <div className="relative flex flex-col w-full overflow-hidden h-[100dvh]">
         {/* Navbar stays at top */}
         <Navbar />
 
         {/* Main scrollable area */}
-        <main className="flex-1 overflow-y-auto overscroll-contain">
+        <main className="flex-1 overflow-y-auto overflow-y-auto overscroll-contain">
           {children}
           <Footer />
         </main>
