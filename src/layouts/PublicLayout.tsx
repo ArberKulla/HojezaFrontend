@@ -15,7 +15,7 @@ export const PublicLayout = ({ children, ...restProps }: Props): JSX.Element => 
         <Navbar/>
 
         {/* Main content grows to take available space */}
-        <main className="flex-1 w-full pt-16">
+        <main className="flex-1 w-full">
           {children}
         </main>
 

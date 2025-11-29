@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
   return (
     <header
       ref={navbarRef}
-      className="fixed w-full top-0 z-50 shadow-md"
+      className="sticky w-full top-0 z-50 shadow-md"
       style={{
         background:
           "linear-gradient(to right, #ffffffff 60%, #fcd34d 90%, #deab2bff 100%)",
