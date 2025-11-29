@@ -238,10 +238,6 @@ const Navbar: React.FC = () => {
                             hover:text-yellow-700
                             hover:-translate-y-0.5   /* lift up on hover */
 
-                            /* Click effect */
-                            active:translate-y-0      
-                            active:scale-95
-
                             /* Smooth animation */
                             transition-all duration-200 ease-out
                           "
@@ -268,10 +264,6 @@ const Navbar: React.FC = () => {
                     hover:bg-yellow-50 
                     hover:text-yellow-700
                     hover:-translate-y-0.5
-
-                    /* Click effect */
-                    active:translate-y-0
-                    active:scale-95
 
                     /* Smooth animation */
                     transition-all duration-200 ease-out
