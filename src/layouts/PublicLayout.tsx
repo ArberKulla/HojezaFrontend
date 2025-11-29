@@ -10,7 +10,7 @@ interface Props {
 export const PublicLayout = ({ children }: Props): JSX.Element => {
   return (
     <FadeInWrapper>
-      <div className="relative flex flex-col w-full overflow-hidden h-[100dvh]">
+      <div className="relative flex flex-col w-full h-[100dvh]">
         {/* Navbar stays at top */}
         <Navbar />
 
