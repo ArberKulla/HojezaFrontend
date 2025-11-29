@@ -191,7 +191,7 @@ const Navbar: React.FC = () => {
             zIndex: 40,
           }}
         >
-          <div className="flex flex-col max-w-7xl mx-auto py-4 space-y-2 max-h-[100vh] overflow-y-auto">
+          <div className="flex flex-col max-w-7xl mx-auto py-4 space-y-2 max-h-[100dvh] overflow-y-auto">
             {navItems.map((item) => {
               const isOpen = openDropdown === item.label;
 

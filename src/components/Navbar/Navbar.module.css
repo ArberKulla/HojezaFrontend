@@ -11,7 +11,7 @@
 }
 
 .desktopDropdown.open {
-  max-height: 100vh;
+  max-height: 100dvh;
   opacity: 1;
 }
 
