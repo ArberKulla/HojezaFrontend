@@ -15,7 +15,7 @@ export const PublicLayout = ({ children }: Props): JSX.Element => {
         <Navbar />
 
         {/* Main scrollable area */}
-        <main className="flex-1 overflow-y-auto overflow-y-auto">
+        <main className="flex flex-col flex-1 overflow-y-auto overflow-y-auto">
           {children}
           <Footer />
         </main>

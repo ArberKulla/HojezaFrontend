@@ -6,6 +6,7 @@ import RegisterPage from '../pages/Auth/RegisterPage/RegisterPage';
 import HomePage from '../pages/Home/Home';
 import ContactPage from '../pages/Contact/Contact';
 import Error404Page from '../pages/NotFound/NotFound';
+import WebDevelopmentPage from '../pages/Services/WebDevelopmentPage';
 
 
 const Router = () =>
@@ -31,6 +32,22 @@ const Router = () =>
         </PublicGuard>
       ),
       index: true,
+    },
+    {
+      path: 'services',
+      children: [
+        {
+          path: 'web-development',
+          element: (
+            <PublicGuard>
+              <PublicLayout>
+                <WebDevelopmentPage />
+              </PublicLayout>
+            </PublicGuard>
+          ),
+          index: true,
+        },
+      ],
     },
     {
       path: 'auth',
